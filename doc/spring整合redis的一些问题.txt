@@ -1,0 +1,27 @@
+1、报错：连接redis错误：ERR Client sent AUTH, but no password is set
+
+问题原因：没有设置redis的密码
+解决：命令行进入Redis的文件夹：
+执行命令：redis-cli.exe
+
+查看是否设置了密码：
+
+127.0.0.1:6379> auth root
+
+(error) ERR Client sent AUTH, but no password is set
+
+说明没有设置密码，执行命令：
+
+127.0.0.1:6379> config set requirepass root
+
+OK  
+
+出现OK说明设置成功
+
+
+redis 127.0.0.1:6379> CONFIG SET requirepass "123456"
+OK
+redis 127.0.0.1:6379> AUTH 123456
+Ok
+
+设置下这个配置密码就好了
