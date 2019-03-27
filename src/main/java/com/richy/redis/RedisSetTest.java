@@ -74,6 +74,23 @@ public class RedisSetTest {
 	}
 	
 	
+	//=================================zset=======================
+	
+	@Test
+	public void testZset() {
+		redisTemplate.boundZSetOps("zset").add("a", 1);
+		redisTemplate.boundZSetOps("zset").add("b", 2);
+	}
+	
+	@Test
+	public void testZsetGet() {
+		Set<String> set = redisTemplate.boundZSetOps("zset").range(0, -1);
+		for(String s:set) {
+			System.out.println(s);
+		}
+	}
+	
+	
 	
 	
 	
